@@ -24,12 +24,13 @@ function PalavraMaisLonga(frase: string) {
     }
     for (let index = 0; index < palavras.length; index++) {
         if (palavras[index].length >= maiorPalavra) {
-            let palavraErrada: string = palavras[index]
-            let palavraCerta = palavraErrada.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '')
+            let palavraErrada = palavras[index]
+            let palavraCerta = palavraErrada.replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '')
             return palavraCerta
         }
     }
 }
+
 // 2. Faça uma função ValidarNomeDeUsuario(nome) use o parâmetro “nome” que é
 // passado e verifique se é um nome de usuário válido de acordo com as regras:
 // a. O nome de usuário tem entre 4 e 25 caracteres;
@@ -41,20 +42,28 @@ function PalavraMaisLonga(frase: string) {
 // saída: true saída: false
 
 
-function ValidarNomeDeUsuario(nome: string) {
+function ValidarNomeDeUsuario(nome: string): boolean {
+    let valido = true
+    if (nome.length < 4 && nome.length > 25) {
+        alert("Nome inserido inválido devido a quantidade de caracteres")
+        valido = false
 
-    if (nome.length > 3 && nome.length < 26) {
+    } else if (nome.charAt(0) == "0" || nome.charAt(0) == "1" || nome.charAt(0) == "2" || nome.charAt(0) == "3" || nome.charAt(0) == "4" || nome.charAt(0) == "5" || nome.charAt(0) == "6" || nome.charAt(0) == "7" || nome.charAt(0) == "8" || nome.charAt(0) == "9") {
+        alert("O nome precisa começar com uma letra!")
+        valido = false
+
+    } else if (nome.charAt(nome.length -1) == "_") {
+        alert("O ultimo caractere não pode ser um underline")
+        valido = false
     }
+    nome.replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '')
 
-
+    if (valido == true) {
+        return true
+    } else {
+        return false
+    }
 }
-
-
-
-
-
-
-
 
 // 3. Faça uma função ElementosEmComum(arrayString) leia o array de strings passado
 // como parâmetro “arrayString” que deve conter dois elementos: o primeiro
@@ -65,3 +74,39 @@ function ValidarNomeDeUsuario(nome: string) {
 // retorne “false” como uma string.
 // Exemplo: entrada: [“2, 4, 5, 8, 14”, “2, 3, 5, 14, 16”]
 // saída: “2, 5, 14”
+
+let palavras: string[] = []
+let palavras2: string[] = []
+let arrayRepetidos: string[] = []
+
+function ElementosEmComum(arrayString: string[]) {
+
+    palavras = arrayString[0].split(",")
+    palavras2 = arrayString[1].split(",")
+    console.log(palavras)
+    console.log(palavras2)
+
+    for (let index2 = 0; index2 < palavras.length; index2++) {
+
+        for (let index = 0; index < palavras2.length; index++) {
+
+            if (palavras[index2] == palavras2[index]) {
+                arrayRepetidos.push(palavras[index2])
+            }
+        }
+    }
+    let concatenar: string = ("")
+    for (let index = 0; index < arrayRepetidos.length; index++) {
+        if(index == 0){
+            concatenar = arrayRepetidos[index]
+        }else{
+            concatenar = concatenar + "," + arrayRepetidos[index] 
+        }  
+    }
+    
+    if (arrayRepetidos.length == 0) {
+        return "false"
+    }else{
+        return concatenar
+    }
+}
