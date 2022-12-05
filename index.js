@@ -9,22 +9,22 @@
 // podem conter números, por exemplo “Ola palavra123 831”.
 // Exemplo: entrada: “estudar&! diversao” entrada: “eu adoro pizza”
 // saída: “diversao” saída: “adoro”
-// function PalavraMaisLonga(frase: string) {
-//     let palavras = frase.split(" ")
-//     let maiorPalavra = 0
-//     for (let index = 0; index < palavras.length; index++) {
-//         if (palavras[index].length > maiorPalavra) {
-//             maiorPalavra = palavras[index].length
-//         }
-//     }
-//     for (let index = 0; index < palavras.length; index++) {
-//         if (palavras[index].length >= maiorPalavra) {
-//             let palavraErrada = palavras[index]
-//             let palavraCerta = palavraErrada.replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '')
-//             return palavraCerta
-//         }
-//     }
-// }
+function PalavraMaisLonga(frase) {
+    var palavras = frase.split(" ");
+    var maiorPalavra = 0;
+    for (var index = 0; index < palavras.length; index++) {
+        if (palavras[index].length > maiorPalavra) {
+            maiorPalavra = palavras[index].length;
+        }
+    }
+    for (var index = 0; index < palavras.length; index++) {
+        if (palavras[index].length >= maiorPalavra) {
+            var palavraErrada = palavras[index];
+            var palavraCerta = palavraErrada.replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '');
+            return palavraCerta;
+        }
+    }
+}
 // 2. Faça uma função ValidarNomeDeUsuario(nome) use o parâmetro “nome” que é
 // passado e verifique se é um nome de usuário válido de acordo com as regras:
 // a. O nome de usuário tem entre 4 e 25 caracteres;
@@ -34,25 +34,28 @@
 // Se o nome de usuário for válido deve retornar true, e se for inválido deve retornar
 // false. Exemplo: entrada: “Dev_brabo” entrada: “_SeniorDev2”
 // saída: true saída: false
-// function ValidarNomeDeUsuario(nome: string): boolean {
-//     let valido = true
-//     if (nome.length < 4 && nome.length > 25) {
-//         alert("Nome inserido inválido devido a quantidade de caracteres")
-//         valido = false
-//     } else if (nome.charAt(0) == "0" || nome.charAt(0) == "1" || nome.charAt(0) == "2" || nome.charAt(0) == "3" || nome.charAt(0) == "4" || nome.charAt(0) == "5" || nome.charAt(0) == "6" || nome.charAt(0) == "7" || nome.charAt(0) == "8" || nome.charAt(0) == "9") {
-//         alert("O nome precisa começar com uma letra!")
-//         valido = false
-//     } else if (nome.charAt(nome.length -1) == "_") {
-//         alert("O ultimo caractere não pode ser um underline")
-//         valido = false
-//     }
-//     nome.replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '')
-//     if (valido == true) {
-//         return true
-//     } else {
-//         return false
-//     }
-// }
+function ValidarNomeDeUsuario(nome) {
+    var valido = true;
+    if (nome.length < 4 || nome.length > 25) {
+        alert("Nome inserido inválido devido a quantidade de caracteres");
+        valido = false;
+    }
+    else if (nome.charAt(0) == "0" || nome.charAt(0) == "1" || nome.charAt(0) == "2" || nome.charAt(0) == "3" || nome.charAt(0) == "4" || nome.charAt(0) == "5" || nome.charAt(0) == "6" || nome.charAt(0) == "7" || nome.charAt(0) == "8" || nome.charAt(0) == "9") {
+        alert("O nome precisa começar com uma letra!");
+        valido = false;
+    }
+    else if (nome.charAt(nome.length - 1) == "_") {
+        alert("O ultimo caractere não pode ser um underline");
+        valido = false;
+    }
+    nome.replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '');
+    if (valido == true) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 // 3. Faça uma função ElementosEmComum(arrayString) leia o array de strings passado
 // como parâmetro “arrayString” que deve conter dois elementos: o primeiro
 // representa uma lista de número separados por vírgula e estão em ordem crescente,

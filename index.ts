@@ -44,7 +44,7 @@ function PalavraMaisLonga(frase: string) {
 
 function ValidarNomeDeUsuario(nome: string): boolean {
     let valido = true
-    if (nome.length < 4 && nome.length > 25) {
+    if (nome.length < 4 || nome.length > 25) {
         alert("Nome inserido inválido devido a quantidade de caracteres")
         valido = false
 
