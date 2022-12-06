@@ -52,7 +52,7 @@ function ValidarNomeDeUsuario(nome: string): boolean {
         alert("O nome precisa começar com uma letra!")
         valido = false
 
-    } else if (nome.charAt(nome.length -1) == "_") {
+    } else if (nome.charAt(nome.length - 1) == "_") {
         alert("O ultimo caractere não pode ser um underline")
         valido = false
     }
@@ -79,7 +79,7 @@ let palavras: string[] = []
 let palavras2: string[] = []
 let arrayRepetidos: string[] = []
 
-function ElementosEmComum(arrayString: string[]) {
+function ElementosEmComum(arrayString: string[]): String {
 
     palavras = arrayString[0].split(",")
     palavras2 = arrayString[1].split(",")
@@ -97,16 +97,15 @@ function ElementosEmComum(arrayString: string[]) {
     }
     let concatenar: string = ("")
     for (let index = 0; index < arrayRepetidos.length; index++) {
-        if(index == 0){
+        if (index == 0) {
             concatenar = arrayRepetidos[index]
-        }else{
-            concatenar = concatenar + "," + arrayRepetidos[index] 
-        }  
+        } else {
+            concatenar = concatenar + "," + arrayRepetidos[index]
+        }
     }
-    
     if (arrayRepetidos.length == 0) {
         return "false"
-    }else{
+    } else {
         return concatenar
     }
 }
