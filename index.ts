@@ -13,7 +13,7 @@
 // saída: “diversao” saída: “adoro”
 
 
-function PalavraMaisLonga(frase: string) {
+function PalavraMaisLonga(frase: string): string {
     let palavras = frase.split(" ")
     let maiorPalavra = 0
 
