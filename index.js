@@ -40,7 +40,7 @@ function ValidarNomeDeUsuario(nome) {
         alert("Nome inserido inválido devido a quantidade de caracteres");
         valido = false;
     }
-    else if (nome.charAt(0) == "0" || nome.charAt(0) == "1" || nome.charAt(0) == "2" || nome.charAt(0) == "3" || nome.charAt(0) == "4" || nome.charAt(0) == "5" || nome.charAt(0) == "6" || nome.charAt(0) == "7" || nome.charAt(0) == "8" || nome.charAt(0) == "9") {
+    else if (nome.charAt(0) == "_" || nome.charAt(0) == "0" || nome.charAt(0) == "1" || nome.charAt(0) == "2" || nome.charAt(0) == "3" || nome.charAt(0) == "4" || nome.charAt(0) == "5" || nome.charAt(0) == "6" || nome.charAt(0) == "7" || nome.charAt(0) == "8" || nome.charAt(0) == "9") {
         alert("O nome precisa começar com uma letra!");
         valido = false;
     }
